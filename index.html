@@ -88,62 +88,61 @@
         <p>Livraison gratuite à partir de 80€ • Retours offerts • Paiement sécurisé</p>
     </div>
 
-  <!-- En-tête -->
-<header>
-    <div class="header-container">
-        <div class="logo">
-            <h1>Petite Saison</h1>
-            <p class="tagline">L'élégance pour nos petits</p>
-        </div>
-        
-        <div class="header-right">
-            <div class="search-bar">
-                <input type="text" placeholder="Rechercher un vêtement...">
-                <button><i class="fas fa-search"></i></button>
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Petite Saison</h1>
+                <p class="tagline">L'élégance pour nos petits</p>
             </div>
             
-            <div class="header-icons">
-                <a href="#"><i class="far fa-heart"></i><span>Favoris</span></a>
-                <a href="#"><i class="far fa-user"></i><span>Compte</span></a>
-                <!-- MODIFICATION ICI : Ajout de l'ID au bouton panier -->
-                <button id="cart-button" class="cart-icon" style="background:none; border:none; cursor:pointer;">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span>Panier</span>
-                    <span id="cart-count" class="cart-count">0</span>
-                </button>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher un vêtement...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-icons">
+                    <a href="#"><i class="far fa-heart"></i><span>Favoris</span></a>
+                    <a href="#"><i class="far fa-user"></i><span>Compte</span></a>
+                    <a href="#" class="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Panier</span>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Navigation (inchangée) -->
-    <nav>
-        <ul>
-            <li><a href="#nouveautes">Nouveautés</a></li>
-            <li class="dropdown">
-                <a href="#filles">Filles <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#filles-0-2">0-2 ans</a></li>
-                    <li><a href="#filles-3-6">3-6 ans</a></li>
-                    <li><a href="#filles-7-12">7-12 ans</a></li>
-                    <li><a href="#filles-accessoires">Accessoires</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#garcons">Garçons <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#garcons-0-2">0-2 ans</a></li>
-                    <li><a href="#garcons-3-6">3-6 ans</a></li>
-                    <li><a href="#garcons-7-12">7-12 ans</a></li>
-                    <li><a href="#garcons-accessoires">Accessoires</a></li>
-                </ul>
-            </li>
-            <li><a href="#bebe">Bébé</a></li>
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#soldes" class="soldes-link">Soldes</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#nouveautes">Nouveautés</a></li>
+                <li class="dropdown">
+                    <a href="#filles">Filles <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#filles-0-2">0-2 ans</a></li>
+                        <li><a href="#filles-3-6">3-6 ans</a></li>
+                        <li><a href="#filles-7-12">7-12 ans</a></li>
+                        <li><a href="#filles-accessoires">Accessoires</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#garcons">Garçons <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#garcons-0-2">0-2 ans</a></li>
+                        <li><a href="#garcons-3-6">3-6 ans</a></li>
+                        <li><a href="#garcons-7-12">7-12 ans</a></li>
+                        <li><a href="#garcons-accessoires">Accessoires</a></li>
+                    </ul>
+                </li>
+                <li><a href="#bebe">Bébé</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#soldes" class="soldes-link">Soldes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Bannière principale -->
     <section class="hero-banner">
@@ -385,50 +384,7 @@
             <div class="brand-logo">Kenzo Kids</div>
         </div>
     </section>
-    <!-- Marques -->
-    <section class="brands">
-        <h2>Nos marques partenaires</h2>
-        <div class="brands-grid">
-            <div class="brand-logo">Petit Bateau</div>
-            <div class="brand-logo">Jacadi</div>
-            <div class="brand-logo">Tartine et Chocolat</div>
-            <div class="brand-logo">Catimini</div>
-            <div class="brand-logo">IKKS</div>
-            <div class="brand-logo">Kenzo Kids</div>
-        </div>
-    </section>
 
-    <!-- NOUVEAU : Section Panier -->
-    <section id="cart-section" class="cart-section">
-        <h2>Votre Panier</h2>
-        <div class="cart-container">
-            <div class="cart-items">
-                <!-- Les articles du panier seront affichés ici dynamiquement -->
-                <p class="empty-cart">Votre panier est vide</p>
-            </div>
-            <div class="cart-summary">
-                <h3>Récapitulatif</h3>
-                <div class="summary-line">
-                    <span>Sous-total</span>
-                    <span id="subtotal">0,00 €</span>
-                </div>
-                <div class="summary-line">
-                    <span>Livraison</span>
-                    <span>Gratuite</span>
-                </div>
-                <div class="summary-line total">
-                    <span>Total</span>
-                    <span id="total">0,00 €</span>
-                </div>
-                <button class="checkout-btn">Procéder au paiement</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Avantages -->
-    <section class="features">
-        ...
-    </section>
     <!-- Avantages -->
     <section class="features">
         <div class="feature">
