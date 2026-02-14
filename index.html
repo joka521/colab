@@ -2,18 +2,239 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Petite Saison - Vêtements enfants élégants</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Styles supplémentaires pour les images des catégories */
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+            background: #fff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* TOP BANNER */
+        .top-banner {
+            background: #f5ebe0;
+            text-align: center;
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .top-banner p {
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 2px;
+        }
+        .top-banner p::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* HEADER RESPONSIVE */
+        .header-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+
+        .logo .tagline {
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            color: #666;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        .search-bar {
+            display: flex;
+            flex: 1 1 180px;
+            min-width: 160px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            min-width: 0;
+            width: 100%;
+        }
+
+        .search-bar button {
+            background: transparent;
+            border: none;
+            padding: 0 12px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icons a, .cart-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            gap: 2px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .header-icons a i, .cart-icon i {
+            font-size: 18px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #c17b7b;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* NAVIGATION MOBILE */
+        nav {
+            background: #f8f4f1;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
+            padding: 0 15px;
+            scrollbar-width: none;
+            position: relative;
+            z-index: 10;
+        }
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        nav ul {
+            display: inline-flex;
+            list-style: none;
+            gap: 20px;
+            padding: 12px 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            position: relative;
+            white-space: nowrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .soldes-link {
+            color: #c17b7b !important;
+            font-weight: 600;
+        }
+
+        .dropdown-menu {
+            display: none;
+        }
+
+        /* HERO BANNER */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1522771930-78848d9293e8?w=1200');
+            background-size: cover;
+            background-position: 30% center;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-content h2 {
+            font-size: clamp(1.8rem, 8vw, 3rem);
+            font-family: 'Playfair Display', serif;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #333;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: #333;
+            color: white;
+        }
+
+        /* CATÉGORIES : déjà responsives dans ta media query */
         .quick-categories {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            padding: 40px 20px;
+            gap: 15px;
+            padding: 30px 15px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -21,7 +242,7 @@
         .category-card {
             position: relative;
             width: 100%;
-            height: 300px;
+            aspect-ratio: 3/4;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -31,11 +252,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .category-card:hover img {
-            transform: scale(1.05);
         }
 
         .category-overlay {
@@ -45,32 +261,438 @@
             right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
             color: white;
-            padding: 20px;
+            padding: 15px 10px;
             text-align: center;
         }
 
         .category-overlay h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
         }
 
         .btn-small {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 6px 16px;
             background: white;
             color: #333;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 30px;
+            font-size: 13px;
             font-weight: 500;
-            transition: background 0.3s;
         }
 
-        .btn-small:hover {
-            background: #f0f0f0;
+        /* PRODUCT SECTION */
+        .products-section {
+            padding: 40px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            transition: 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: #c17b7b;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            opacity: 0.9;
+        }
+
+        .product-actions button {
+            background: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .product-info {
+            padding: 15px 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .product-info h3 {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .product-category {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .current-price {
+            font-weight: 700;
+            color: #c17b7b;
+            font-size: 16px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .product-colors {
+            display: flex;
+            gap: 6px;
+            margin: 2px 0;
+        }
+
+        .color-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .add-to-cart {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 8px 0;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* AGE SECTION */
+        .age-section {
+            padding: 30px 15px;
+            text-align: center;
+            background: #faf7f5;
+        }
+
+        .age-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            margin: 20px auto 0;
+        }
+
+        .age-card {
+            background: white;
+            padding: 18px 5px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .age-range {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .age-count {
+            font-size: 12px;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        /* COLLECTION BANNER */
+        .collection-banner {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=1200');
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .collection-content h2 {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .btn-light {
+            background: white;
+            color: #333;
+        }
+
+        /* CART SECTION */
+        .cart-section {
+            padding: 40px 15px;
+            background: #f8f4f1;
+        }
+
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        .cart-items {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .cart-summary {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+        }
+
+        .total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-top: 1px solid #ddd;
+            padding-top: 12px;
+        }
+
+        .checkout-btn {
+            background: #c17b7b;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .feature i {
+            font-size: 28px;
+            color: #c17b7b;
+            margin-bottom: 8px;
+        }
+
+        .feature h4 {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .feature p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* NEWSLETTER */
+        .newsletter {
+            background: #e8ddd4;
+            padding: 50px 15px;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 450px;
+            margin: 20px auto 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1 1 200px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 40px;
+            font-size: 14px;
+            min-width: 0;
+        }
+
+        .newsletter-form button {
+            padding: 14px 25px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 40px 15px 15px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 30px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: white;
+            background: #444;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            font-size: 24px;
+            color: #ccc;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+        }
+
+        /* MEDIA QUERIES PRINCIPALES */
         @media (max-width: 768px) {
             .quick-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .search-bar {
+                flex: 1 1 auto;
+            }
+
+            .products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -78,7 +700,77 @@
         @media (max-width: 480px) {
             .quick-categories {
                 grid-template-columns: 1fr;
+                gap: 12px;
             }
+
+            .category-card {
+                aspect-ratio: 16/9;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .age-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .payment-methods {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+
+        /* petits ajustements */
+        .view-all {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #333;
+            color: #333;
+            padding: 10px 30px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #888;
+            padding: 20px;
+        }
+
+        /* simplification dropdown pour mobile (caché) */
+        .dropdown-menu {
+            display: none;
+        }
+
+        /* tap targets */
+        button, a {
+            touch-action: manipulation;
+        }
+
+        /* amélioration scroll */
+        .product-actions button {
+            min-width: 40px;
+            min-height: 40px;
         }
     </style>
 </head>
@@ -105,7 +797,6 @@
             <div class="header-icons">
                 <a href="#"><i class="far fa-heart"></i><span>Favoris</span></a>
                 <a href="#"><i class="far fa-user"></i><span>Compte</span></a>
-                <!-- MODIFICATION ICI : Ajout de l'ID au bouton panier -->
                 <button id="cart-button" class="cart-icon" style="background:none; border:none; cursor:pointer;">
                     <i class="fas fa-shopping-bag"></i>
                     <span>Panier</span>
@@ -158,28 +849,28 @@
     <!-- Catégories rapides -->
     <section class="quick-categories">
         <div class="category-card">
-            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3733a246-9194-5516-85d4-5c43b12c63da/996a6d02-752c-5e6d-9e7c-1013ef308243.jpg" alt="Fille">
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3733a246-9194-5516-85d4-5c43b12c63da/996a6d02-752c-5e6d-9e7c-1013ef308243.jpg" alt="Fille" loading="lazy">
             <div class="category-overlay">
                 <h3>Filles</h3>
                 <a href="#filles" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
-            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/74639390-1bb5-5dfd-8550-7ea3ac779b07/c5863b44-41ff-54c8-8b69-29580ce63d66.jpg" alt="Garçon">
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/74639390-1bb5-5dfd-8550-7ea3ac779b07/c5863b44-41ff-54c8-8b69-29580ce63d66.jpg" alt="Garçon" loading="lazy">
             <div class="category-overlay">
                 <h3>Garçons</h3>
                 <a href="#garcons" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400" alt="Bébé">
+            <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400" alt="Bébé" loading="lazy">
             <div class="category-overlay">
                 <h3>Bébé</h3>
                 <a href="#bebe" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
-            <img src="https://www.petiteamelie.fr/media/catalog/product/cache/9ca5c0ad6f3cfa8a755e363117c2d905/d/i/dinette-bois-rose-cuisine-enfant-petite-amelie_1.jpg" alt="Accessoires">
+            <img src="https://www.petiteamelie.fr/media/catalog/product/cache/9ca5c0ad6f3cfa8a755e363117c2d905/d/i/dinette-bois-rose-cuisine-enfant-petite-amelie_1.jpg" alt="Accessoires" loading="lazy">
             <div class="category-overlay">
                 <h3>Accessoires</h3>
                 <a href="#accessoires" class="btn-small">Voir plus</a>
@@ -199,7 +890,7 @@
             <div class="product-card">
                 <div class="product-badge new">Nouveau</div>
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Robe fleurie">
+                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Robe fleurie" loading="lazy">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -224,7 +915,7 @@
             <!-- Produit 2 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa9?w=400" alt="Ensemble garçon">
+                    <img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa9?w=400" alt="Ensemble garçon" loading="lazy">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -249,7 +940,7 @@
             <div class="product-card">
                 <div class="product-badge promo">-30%</div>
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Pull bébé">
+                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Pull bébé" loading="lazy">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -273,7 +964,7 @@
             <!-- Produit 4 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Jupe tutu">
+                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Jupe tutu" loading="lazy">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -296,7 +987,7 @@
             <!-- Produit 5 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Veste garçon">
+                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Veste garçon" loading="lazy">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -315,7 +1006,7 @@
             <!-- Produit 6 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Barboteuse">
+                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Barboteuse" loading="lazy">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -393,111 +1084,4 @@
                     <span>Livraison</span>
                     <span>Gratuite</span>
                 </div>
-                <div class="summary-line total">
-                    <span>Total</span>
-                    <span id="total">0,00 €</span>
-                </div>
-                <button class="checkout-btn">Procéder au paiement</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Avantages -->
-    <section class="features">
-        ...
-    </section>
-    <!-- Avantages -->
-    <section class="features">
-        <div class="feature">
-            <i class="fas fa-truck"></i>
-            <h4>Livraison offerte</h4>
-            <p>Dès 80€ d'achat</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-undo-alt"></i>
-            <h4>Retours gratuits</h4>
-            <p>30 jours pour changer d'avis</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-lock"></i>
-            <h4>Paiement sécurisé</h4>
-            <p>CB, PayPal, Apple Pay</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-gift"></i>
-            <h4>Carte cadeau</h4>
-            <p>Offrir un bon d'achat</p>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="newsletter-content">
-            <h3>Recevez nos nouveautés</h3>
-            <p>Inscrivez-vous pour recevoir nos offres exclusives</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Votre adresse email">
-                <button type="submit">S'inscrire</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h4>Petite Saison</h4>
-                <ul>
-                    <li><a href="#histoire">Notre histoire</a></li>
-                    <li><a href="#boutiques">Nos boutiques</a></li>
-                    <li><a href="#recrutement">Recrutement</a></li>
-                    <li><a href="#presse">Espace presse</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Service client</h4>
-                <ul>
-                    <li><a href="#contact">Contactez-nous</a></li>
-                    <li><a href="#livraison">Livraison</a></li>
-                    <li><a href="#retours">Retours et remboursements</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#guide">Guide des tailles</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Informations</h4>
-                <ul>
-                    <li><a href="#cgv">CGV</a></li>
-                    <li><a href="#mentions">Mentions légales</a></li>
-                    <li><a href="#confidentialite">Politique de confidentialité</a></li>
-                    <li><a href="#cookies">Gestion des cookies</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Suivez-nous</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Petite Saison - Tous droits réservés</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                <div class="
