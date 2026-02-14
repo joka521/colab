@@ -1,1 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petite Saison - Vêtements enfants élégants</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barre de promotion -->
+    <div class="top-banner">
+        <p>Livraison gratuite à partir de 80€ • Retours offerts • Paiement sécurisé</p>
+    </div>
 
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Petite Saison</h1>
+                <p class="tagline">L'élégance pour nos petits</p>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher un vêtement...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-icons">
+                    <a href="#"><i class="far fa-heart"></i><span>Favoris</span></a>
+                    <a href="#"><i class="far fa-user"></i><span>Compte</span></a>
+                    <a href="#" class="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Panier</span>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#nouveautes">Nouveautés</a></li>
+                <li class="dropdown">
+                    <a href="#filles">Filles <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#filles-0-2">0-2 ans</a></li>
+                        <li><a href="#filles-3-6">3-6 ans</a></li>
+                        <li><a href="#filles-7-12">7-12 ans</a></li>
+                        <li><a href="#filles-accessoires">Accessoires</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#garcons">Garçons <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#garcons-0-2">0-2 ans</a></li>
+                        <li><a href="#garcons-3-6">3-6 ans</a></li>
+                        <li><a href="#garcons-7-12">7-12 ans</a></li>
+                        <li><a href="#garcons-accessoires">Accessoires</a></li>
+                    </ul>
+                </li>
+                <li><a href="#bebe">Bébé</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#soldes" class="soldes-link">Soldes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Bannière principale -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="season">Collection Printemps-Été 2026</span>
+            <h2>Douceur et Élégance</h2>
+            <p>Des matières nobles pour le confort de vos enfants</p>
+            <a href="#nouveautes" class="btn btn-primary">Découvrir la collection</a>
+        </div>
+    </section>
+
+    <!-- Catégories rapides -->
+    <section class="quick-categories">
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Fille">
+            <div class="category-overlay">
+                <h3>Filles</h3>
+                <a href="#filles" class="btn btn-small">Voir plus</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Garçon">
+            <div class="category-overlay">
+                <h3>Garçons</h3>
+                <a href="#garcons" class="btn btn-small">Voir plus</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400" alt="Bébé">
+            <div class="category-overlay">
+                <h3>Bébé</h3>
+                <a href="#bebe" class="btn btn-small">Voir plus</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa9?w=400" alt="Accessoires">
+            <div class="category-overlay">
+                <h3>Accessoires</h3>
+                <a href="#accessoires" class="btn btn-small">Voir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nouveautés -->
+    <section id="nouveautes" class="products-section">
+        <div class="section-header">
+            <h2>Nouveautés de la semaine</h2>
+            <p>Les dernières pièces arrivées dans notre boutique</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-badge new">Nouveau</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Robe fleurie">
+                    <div class="product-actions">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Robe fleurie printanière</h3>
+                    <p class="product-category">Fille - 3/6 ans</p>
+                    <div class="product-price">
+                        <span class="current-price">49,90 €</span>
+                        <span class="original-price">69,90 €</span>
+                    </div>
+                    <div class="product-colors">
+                        <span class="color-dot" style="background: #ffb6c1;"></span>
+                        <span class="color-dot" style="background: #fff0f5;"></span>
+                        <span class="color-dot" style="background: #e6e6fa;"></span>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa9?w=400" alt="Ensemble garçon">
+                    <div class="product-actions">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Ensemble casual chic</h3>
+                    <p class="product-category">Garçon - 4/8 ans</p>
+                    <div class="product-price">
+                        <span class="current-price">59,90 €</span>
+                    </div>
+                    <div class="product-colors">
+                        <span class="color-dot" style="background: #2f4f4f;"></span>
+                        <span class="color-dot" style="background: #4169e1;"></span>
+                        <span class="color-dot" style="background: #696969;"></span>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-badge promo">-30%</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Pull bébé">
+                    <div class="product-actions">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Pull tout doux en cachemire</h3>
+                    <p class="product-category">Bébé - 12/18 mois</p>
+                    <div class="product-price">
+                        <span class="current-price">34,90 €</span>
+                        <span class="original-price">49,90 €</span>
+                    </div>
+                    <div class="product-colors">
+                        <span class="color-dot" style="background: #f5f5dc;"></span>
+                        <span class="color-dot" style="background: #d3d3d3;"></span>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Jupe tutu">
+                    <div class="product-actions">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Jupe tutu de fête</h3>
+                    <p class="product-category">Fille - 4/10 ans</p>
+                    <div class="product-price">
+                        <span class="current-price">45,90 €</span>
+                    </div>
+                    <div class="product-colors">
+                        <span class="color-dot" style="background: #ff69b4;"></span>
+                        <span class="color-dot" style="background: #9370db;"></span>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Veste garçon">
+                    <div class="product-actions">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Veste en tweed</h3>
+                    <p class="product-category">Garçon - 6/12 ans</p>
+                    <div class="product-price">
+                        <span class="current-price">79,90 €</span>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Barboteuse">
+                    <div class="product-actions">
+                        <button class="quick-view"><i class="fas fa-eye"></i></button>
+                        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Barboteuse en lin</h3>
+                    <p class="product-category">Bébé - 3/12 mois</p>
+                    <div class="product-price">
+                        <span class="current-price">39,90 €</span>
+                    </div>
+                    <div class="product-colors">
+                        <span class="color-dot" style="background: #f0e68c;"></span>
+                        <span class="color-dot" style="background: #98fb98;"></span>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-all">
+            <a href="#tous-produits" class="btn btn-secondary">Voir tous les produits</a>
+        </div>
+    </section>
+
+    <!-- Bannière collection -->
+    <section class="collection-banner">
+        <div class="collection-content">
+            <h2>Collection Cérémonie</h2>
+            <p>Pour les grands jours de vos petits</p>
+            <a href="#ceremonie" class="btn btn-light">Découvrir</a>
+        </div>
+    </section>
+
+    <!-- Sélection par âge -->
+    <section class="age-section">
+        <h2>Sélection par âge</h2>
+        <div class="age-grid">
+            <a href="#0-2" class="age-card">
+                <span class="age-range">0-2 ans</span>
+                <span class="age-count">124 articles</span>
+            </a>
+            <a href="#3-5" class="age-card">
+                <span class="age-range">3-5 ans</span>
+                <span class="age-count">156 articles</span>
+            </a>
+            <a href="#6-9" class="age-card">
+                <span class="age-range">6-9 ans</span>
+                <span class="age-count">98 articles</span>
+            </a>
+            <a href="#10-14" class="age-card">
+                <span class="age-range">10-14 ans</span>
+                <span class="age-count">87 articles</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Marques -->
+    <section class="brands">
+        <h2>Nos marques partenaires</h2>
+        <div class="brands-grid">
+            <div class="brand-logo">Petit Bateau</div>
+            <div class="brand-logo">Jacadi</div>
+            <div class="brand-logo">Tartine et Chocolat</div>
+            <div class="brand-logo">Catimini</div>
+            <div class="brand-logo">IKKS</div>
+            <div class="brand-logo">Kenzo Kids</div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-truck"></i>
+            <h4>Livraison offerte</h4>
+            <p>Dès 80€ d'achat</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-undo-alt"></i>
+            <h4>Retours gratuits</h4>
+            <p>30 jours pour changer d'avis</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-lock"></i>
+            <h4>Paiement sécurisé</h4>
+            <p>CB, PayPal, Apple Pay</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-gift"></i>
+            <h4>Carte cadeau</h4>
+            <p>Offrir un bon d'achat</p>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h3>Recevez nos nouveautés</h3>
+            <p>Inscrivez-vous pour recevoir nos offres exclusives</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Votre adresse email">
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Petite Saison</h4>
+                <ul>
+                    <li><a href="#histoire">Notre histoire</a></li>
+                    <li><a href="#boutiques">Nos boutiques</a></li>
+                    <li><a href="#recrutement">Recrutement</a></li>
+                    <li><a href="#presse">Espace presse</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Service client</h4>
+                <ul>
+                    <li><a href="#contact">Contactez-nous</a></li>
+                    <li><a href="#livraison">Livraison</a></li>
+                    <li><a href="#retours">Retours et remboursements</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#guide">Guide des tailles</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="#cgv">CGV</a></li>
+                    <li><a href="#mentions">Mentions légales</a></li>
+                    <li><a href="#confidentialite">Politique de confidentialité</a></li>
+                    <li><a href="#cookies">Gestion des cookies</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Petite Saison - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
