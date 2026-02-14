@@ -1,228 +1,162 @@
 // Gestion du panier
-let cartCount = 3; // Exemple de départ
-const cartCountElement = document.querySelector('.cart-count');
+let cartCount = 0;
+const cartCountElement = document.getElementById('cart-count');
+const cartButton = document.getElementById('cart-button');
+const cartSection = document.getElementById('cart-section');
 
-// Mise à jour du compteur panier
-function updateCartCount() {
-    cartCountElement.textContent = cartCount;
-}
-
-// Ajout au panier
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        cartCount++;
+// Scroll vers le panier quand on clique sur le bouton
+document.addEventListener("DOMContentLoaded", () => {
+    if (cartButton && cartSection) {
+        cartButton.addEventListener("click", () => {
+            cartSection.scrollIntoView({ behavior: "smooth" });
+        });
+    }
+    
+    // Charger le compteur depuis localStorage au démarrage
+    const savedCart = localStorage.getItem('cartCount');
+    if (savedCart) {
+        cartCount = parseInt(savedCart);
         updateCartCount();
-        
-        // Animation de confirmation
-        this.textContent = 'Ajouté !';
-        this.style.background = '#27ae60';
+    }
+    
+    // Charger les articles du panier
+    loadCartItems();
+    
+    // Ajouter les écouteurs d'événements aux boutons d'ajout au panier
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+    
+    console.log('Boutique enfants chargée !');
+});
+
+// Mise à jour du compteur panier avec animation
+function updateCartCount() {
+    if (cartCountElement) {
+        cartCountElement.textContent = cartCount;
+        cartCountElement.classList.add('cart-update');
         
         setTimeout(() => {
-            this.textContent = 'Ajouter au panier';
-            this.style.background = '#2c3e50';
-        }, 1000);
-        
-        // Ici vous pouvez ajouter la logique pour ajouter le produit au panier
-        console.log('Produit ajouté au panier');
-    });
-});
-
-// Gestion des favoris
-document.querySelectorAll('.add-to-wishlist').forEach(button => {
-    button.addEventListener('click', function() {
-        const icon = this.querySelector('i');
-        
-        if (icon.classList.contains('far')) {
-            icon.classList.remove('far');
-            icon.classList.add('fas');
-            icon.style.color = '#e74c3c';
-            
-            // Animation
-            this.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
-        } else {
-            icon.classList.remove('fas');
-            icon.classList.add('far');
-            icon.style.color = '';
-        }
-    });
-});
-
-// Quick view (simulation)
-document.querySelectorAll('.quick-view').forEach(button => {
-    button.addEventListener('click', function() {
-        const productCard = this.closest('.product-card');
-        const productName = productCard.querySelector('h3').textContent;
-        
-        alert(`Fenêtre d'aperçu pour : ${productName}\n(Fonctionnalité à développer)`);
-    });
-});
-
-// Barre de recherche
-const searchInput = document.querySelector('.search-bar input');
-const searchButton = document.querySelector('.search-bar button');
-
-searchButton.addEventListener('click', function() {
-    const searchTerm = searchInput.value.trim();
+            cartCountElement.classList.remove('cart-update');
+        }, 300);
+    }
     
-    if (searchTerm) {
-        alert(`Recherche de : "${searchTerm}"\n(Fonctionnalité de recherche à implémenter)`);
-        searchInput.value = '';
-    }
-});
+    // Sauvegarder dans localStorage
+    localStorage.setItem('cartCount', cartCount);
+}
 
-searchInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        searchButton.click();
-    }
-});
-
-// Newsletter
-const newsletterForm = document.querySelector('.newsletter-form');
-
-newsletterForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = this.querySelector('input').value;
+// Charger les articles du panier
+function loadCartItems() {
+    const cartItems = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
+    const cartContainer = document.querySelector('.cart-items');
+    const subtotalElement = document.getElementById('subtotal');
+    const totalElement = document.getElementById('total');
     
-    if (email) {
-        alert(`Merci pour votre inscription ${email} ! Vous recevrez nos offres prochainement.`);
-        this.querySelector('input').value = '';
+    if (!cartContainer) return;
+    
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = '<p class="empty-cart">Votre panier est vide</p>';
+        if (subtotalElement) subtotalElement.textContent = '0,00 €';
+        if (totalElement) totalElement.textContent = '0,00 €';
+        return;
     }
-});
-
-// Sélection des couleurs
-document.querySelectorAll('.color-dot').forEach(dot => {
-    dot.addEventListener('click', function() {
-        // Retirer la sélection précédente dans ce produit
-        const parentColors = this.closest('.product-colors');
-        parentColors.querySelectorAll('.color-dot').forEach(d => {
-            d.style.transform = 'scale(1)';
-            d.style.boxShadow = '0 0 0 1px #ddd';
-        });
+    
+    let subtotal = 0;
+    let cartHtml = '';
+    
+    cartItems.forEach((item, index) => {
+        const price = parseFloat(item.price.replace('€', '').replace(',', '.'));
+        subtotal += price;
         
-        // Sélectionner cette couleur
-        this.style.transform = 'scale(1.2)';
-        this.style.boxShadow = '0 0 0 2px #2c3e50';
-        
-        // Ici vous pourriez changer l'image du produit
-        console.log('Couleur sélectionnée');
+        cartHtml += `
+            <div class="cart-item" data-index="${index}">
+                <img src="${item.image || 'https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=100'}" alt="${item.name}">
+                <div class="item-details">
+                    <h4>${item.name}</h4>
+                    <p>Taille: ${item.size || 'Unique'}</p>
+                    <p>Quantité: ${item.quantity || 1}</p>
+                </div>
+                <span class="item-price">${item.price}</span>
+                <button class="remove-item" onclick="removeFromCart(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `;
     });
-});
+    
+    cartContainer.innerHTML = cartHtml;
+    
+    if (subtotalElement) subtotalElement.textContent = subtotal.toFixed(2).replace('.', ',') + ' €';
+    if (totalElement) totalElement.textContent = subtotal.toFixed(2).replace('.', ',') + ' €';
+}
 
-// Animation au scroll pour les cartes produits
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.product-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.5s, transform 0.5s';
-    observer.observe(card);
-});
-
-// Menu mobile (simplifié)
-const nav = document.querySelector('nav ul');
-const mobileMenuButton = document.createElement('button');
-mobileMenuButton.innerHTML = '☰';
-mobileMenuButton.classList.add('mobile-menu-btn');
-mobileMenuButton.style.display = 'none';
-
-// Style pour le bouton mobile
-const style = document.createElement('style');
-style.textContent = `
-    @media (max-width: 768px) {
-        .mobile-menu-btn {
-            display: block !important;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: #2c3e50;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        nav ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav ul.show {
-            display: block;
-        }
-        
-        nav ul li {
-            margin: 1rem 0;
-        }
-    }
-`;
-
-document.head.appendChild(style);
-document.querySelector('nav').appendChild(mobileMenuButton);
-
-mobileMenuButton.addEventListener('click', () => {
-    document.querySelector('nav ul').classList.toggle('show');
-});
-
-// Gestion du dropdown en mobile
-document.querySelectorAll('.dropdown > a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
-            const menu = link.nextElementSibling;
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-    });
-});
-
-// Prix avec animation
-document.querySelectorAll('.current-price').forEach(price => {
-    const originalPrice = price.nextElementSibling;
-    if (originalPrice && originalPrice.classList.contains('original-price')) {
-        // Calculer le pourcentage de réduction
-        const current = parseFloat(price.textContent);
-        const original = parseFloat(originalPrice.textContent);
-        if (!isNaN(current) && !isNaN(original) && original > current) {
-            const discount = Math.round(((original - current) / original) * 100);
-            const discountBadge = document.createElement('span');
-            discountBadge.classList.add('discount-badge');
-            discountBadge.textContent = `-${discount}%`;
-            discountBadge.style.cssText = `
-                background: #e74c3c;
-                color: white;
-                padding: 0.2rem 0.5rem;
-                border-radius: 3px;
-                font-size: 0.8rem;
-                margin-left: 0.5rem;
-            `;
-            price.appendChild(discountBadge);
-        }
-    }
-});
-
-// Initialisation
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Boutique enfants chargée !');
+// Ajouter au panier
+function addToCart(event) {
+    const button = event.currentTarget;
+    cartCount++;
     updateCartCount();
-});
+    
+    // Récupérer les infos du produit
+    const productCard = button.closest('.product-card');
+    const productName = productCard.querySelector('h3').textContent;
+    const productPrice = productCard.querySelector('.current-price').textContent;
+    const productImage = productCard.querySelector('img').src;
+    
+    // Animation de confirmation
+    const originalText = button.textContent;
+    button.textContent = '✓ Ajouté !';
+    button.style.background = '#27ae60';
+    
+    // Stocker les détails du produit dans sessionStorage
+    const cartItems = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
+    cartItems.push({
+        name: productName,
+        price: productPrice,
+        image: productImage,
+        quantity: 1,
+        size: '4 ans', // Vous pouvez modifier selon votre logique
+        id: Date.now()
+    });
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+    // Recharger l'affichage du panier
+    loadCartItems();
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.background = '#2c3e50';
+    }, 1000);
+    
+    console.log(`Produit ajouté : ${productName}`);
+}
+
+// Retirer un article du panier
+function removeFromCart(index) {
+    const cartItems = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
+    cartItems.splice(index, 1);
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+    // Mettre à jour le compteur
+    cartCount = cartItems.length;
+    updateCartCount();
+    
+    // Recharger l'affichage
+    loadCartItems();
+}
+
+// Rendre la fonction disponible globalement
+window.removeFromCart = removeFromCart;
+
+// Gestionnaire pour le bouton de paiement
+const checkoutBtn = document.querySelector('.checkout-btn');
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+        const cartItems = JSON.parse(sessionStorage.getItem('cartItems') || '[]');
+        
+        if (cartItems.length === 0) {
+            alert('Votre panier est vide !');
+        } else {
+            alert('Redirection vers la page de paiement... (Fonctionnalité à implémenter)');
+        }
+    });
+}
