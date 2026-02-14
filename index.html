@@ -7,6 +7,80 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles supplémentaires pour les images des catégories */
+        .quick-categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .btn-small {
+            display: inline-block;
+            padding: 8px 20px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-small:hover {
+            background: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .quick-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quick-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Barre de promotion -->
@@ -86,28 +160,28 @@
             <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3733a246-9194-5516-85d4-5c43b12c63da/996a6d02-752c-5e6d-9e7c-1013ef308243.jpg" alt="Fille">
             <div class="category-overlay">
                 <h3>Filles</h3>
-                <a href="#filles" class="btn btn-small">Voir plus</a>
+                <a href="#filles" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
             <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/74639390-1bb5-5dfd-8550-7ea3ac779b07/c5863b44-41ff-54c8-8b69-29580ce63d66.jpg" alt="Garçon">
             <div class="category-overlay">
                 <h3>Garçons</h3>
-                <a href="#garcons" class="btn btn-small">Voir plus</a>
+                <a href="#garcons" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
             <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400" alt="Bébé">
             <div class="category-overlay">
                 <h3>Bébé</h3>
-                <a href="#bebe" class="btn btn-small">Voir plus</a>
+                <a href="#bebe" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa9?w=400" alt="Accessoires">
+            <img src="https://www.petiteamelie.fr/media/catalog/product/cache/9ca5c0ad6f3cfa8a755e363117c2d905/d/i/dinette-bois-rose-cuisine-enfant-petite-amelie_1.jpg" alt="Accessoires">
             <div class="category-overlay">
                 <h3>Accessoires</h3>
-                <a href="#accessoires" class="btn btn-small">Voir plus</a>
+                <a href="#accessoires" class="btn-small">Voir plus</a>
             </div>
         </div>
     </section>
