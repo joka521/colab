@@ -2,1246 +2,345 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petite Saison - Vêtements enfants élégants</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ===== STYLES DE BASE (INCHANGÉS) ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Top banner */
-        .top-banner {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #2c3e50;
-            letter-spacing: 2px;
-        }
-
-        .tagline {
-            font-size: 0.8rem;
-            color: #7f8c8d;
-            letter-spacing: 1px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .search-bar {
-            display: flex;
-            border: 1px solid #e0e0e0;
-            border-radius: 30px;
-            overflow: hidden;
-        }
-
-        .search-bar input {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            width: 300px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .search-bar button {
-            padding: 0.8rem 1.5rem;
-            background: #2c3e50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .search-bar button:hover {
-            background: #34495e;
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .header-icons a, .cart-icon {
-            color: #2c3e50;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 0.7rem;
-            gap: 0.3rem;
-            transition: color 0.3s;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .header-icons a:hover {
-            color: #e74c3c;
-        }
-
-        .header-icons i {
-            font-size: 1.3rem;
-        }
-
-        .cart-icon {
-            position: relative;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #e74c3c;
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 50%;
-        }
-
-        /* Navigation */
-        nav {
-            background: #f8f9fa;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        nav ul {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #e74c3c;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-            z-index: 100;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu li {
-            padding: 0.5rem 1.5rem;
-        }
-
-        .dropdown-menu a {
-            text-transform: none;
-            font-size: 0.9rem;
-        }
-
-        .soldes-link {
-            color: #e74c3c !important;
-            font-weight: 600;
-        }
-
-        /* Hero banner */
-        .hero-banner {
-            height: 600px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=1400');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero-content .season {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .hero-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #2c3e50;
-        }
-
-        .btn-primary:hover {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #2c3e50;
-            border: 2px solid #2c3e50;
-        }
-
-        .btn-secondary:hover {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .btn-light {
-            background: white;
-            color: #2c3e50;
-        }
-
-        .btn-light:hover {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .btn-small {
-            padding: 0.5rem 1.5rem;
-            font-size: 0.8rem;
-        }
-
-        /* Quick categories */
+        /* Styles supplémentaires pour les images des catégories */
         .quick-categories {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .category-card {
             position: relative;
+            width: 100%;
             height: 300px;
             overflow: hidden;
-            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .category-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.3s ease;
         }
 
         .category-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .category-overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
             color: white;
+            padding: 20px;
+            text-align: center;
         }
 
         .category-overlay h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
 
-        /* Products section */
-        .products-section {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+        .btn-small {
+            display: inline-block;
+            padding: 8px 20px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-small:hover {
+            background: #f0f0f0;
+        }
+
+        /* Styles améliorés pour le panier */
+        .cart-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
+            text-align: left;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f5f5f5;
         }
 
         .section-header h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
         }
 
-        .section-header p {
-            color: #7f8c8d;
+        .cart-subtitle {
+            color: #999;
+            font-size: 14px;
+            margin: 0;
         }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
+        .cart-items-container {
+            min-height: 150px;
+            margin-bottom: 25px;
         }
 
-        .product-card {
-            background: white;
-            border: 1px solid #f0f0f0;
-            transition: all 0.3s;
-        }
-
-        .product-card:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 3/4;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: #2c3e50;
-            color: white;
-            padding: 0.3rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .product-badge.new {
-            background: #27ae60;
-        }
-
-        .product-badge.promo {
-            background: #e74c3c;
-        }
-
-        .product-actions {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.3s;
-        }
-
-        .product-card:hover .product-actions {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .product-actions button {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: none;
-            background: white;
-            color: #2c3e50;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .product-actions button:hover {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-            color: #2c3e50;
-        }
-
-        .product-category {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-price {
-            margin-bottom: 0.8rem;
-        }
-
-        .current-price {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .original-price {
-            font-size: 0.9rem;
-            color: #95a5a6;
-            text-decoration: line-through;
-            margin-left: 0.5rem;
-        }
-
-        .product-colors {
-            display: flex;
-            gap: 0.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .color-dot {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 0 1px #ddd;
-            cursor: pointer;
-        }
-
-        .color-dot:hover {
-            transform: scale(1.1);
-        }
-
-        .add-to-cart {
-            width: 100%;
-            padding: 0.8rem;
-            background: #2c3e50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background: #34495e;
-        }
-
-        .view-all {
+        .empty-cart-message {
             text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* Collection banner */
-        .collection-banner {
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=1400');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .collection-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .collection-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Age section */
-        .age-section {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .age-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        .age-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .age-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            text-align: center;
-            text-decoration: none;
-            color: #2c3e50;
-            transition: all 0.3s;
-            border: 1px solid #e0e0e0;
-        }
-
-        .age-card:hover {
-            background: #2c3e50;
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        .age-range {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .age-count {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-
-        .age-card:hover .age-count {
-            color: rgba(255,255,255,0.8);
-        }
-
-        /* Brands (optionnel, si présent dans HTML) */
-        .brands {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .brands h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .brand-logo {
-            text-align: center;
-            padding: 1rem;
-            border: 1px solid #f0f0f0;
-            font-weight: 600;
-            color: #2c3e50;
-            transition: all 0.3s;
-        }
-
-        .brand-logo:hover {
-            background: #2c3e50;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* Features */
-        .features {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            background: #f8f9fa;
-        }
-
-        .feature {
-            text-align: center;
-        }
-
-        .feature i {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .feature h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .feature p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: #2c3e50;
-            color: white;
-            padding: 4rem 2rem;
-        }
-
-        .newsletter-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .newsletter-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .newsletter-content p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .newsletter-form button {
-            padding: 1rem 2rem;
-            background: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            background: #c0392b;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a2632;
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-        }
-
-        .footer-column h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: #e74c3c;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column a:hover {
-            color: #e74c3c;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #e74c3c;
-            transform: translateY(-3px);
-        }
-
-        .payment-methods {
-            display: flex;
-            gap: 1rem;
-            font-size: 2rem;
-            color: rgba(255,255,255,0.5);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
-        }
-
-        /* Section Panier */
-        .cart-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
+            padding: 40px 20px;
             background: #f9f9f9;
-            border-radius: 10px;
-            scroll-margin-top: 100px;
+            border-radius: 15px;
         }
 
-        .cart-section h2 {
-            font-family: 'Playfair Display', serif;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e0e0e0;
+        .empty-cart-message i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 15px;
         }
 
-        .cart-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+        .empty-cart-message p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
 
-        .cart-items {
-            background: white;
-            border-radius: 8px;
-            padding: 1rem;
-            min-height: 200px;
+        .btn-continue {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: background 0.3s;
         }
 
-        .empty-cart {
-            text-align: center;
-            color: #7f8c8d;
-            padding: 2rem;
-        }
-
-        .cart-item {
-            display: grid;
-            grid-template-columns: auto 1fr auto auto;
-            gap: 1rem;
-            align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .cart-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        .item-details h4 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 0.3rem;
-            color: #2c3e50;
-        }
-
-        .item-details p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin: 0.2rem 0;
-        }
-
-        .item-price {
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 1.1rem;
-        }
-
-        .remove-item {
-            background: none;
-            border: none;
-            color: #e74c3c;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        .remove-item:hover {
-            color: #c0392b;
+        .btn-continue:hover {
+            background: #555;
         }
 
         .cart-summary {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            height: fit-content;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
         }
 
-        .cart-summary h3 {
-            font-family: 'Playfair Display', serif;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e0e0e0;
-        }
-
-        .summary-line {
+        .summary-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+            align-items: center;
+            padding: 10px 0;
+            color: #555;
+            font-size: 15px;
         }
 
-        .summary-line.total {
-            font-size: 1.2rem;
+        .summary-row:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-value {
+            font-weight: 500;
+        }
+
+        .delivery-free {
+            color: #27ae60;
             font-weight: 600;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 2px solid #e0e0e0;
+        }
+
+        .total-row {
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+        }
+
+        .total-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .total-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
         }
 
         .checkout-btn {
             width: 100%;
-            padding: 1rem;
-            background: #2c3e50;
+            padding: 15px;
+            background: #333;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
-            margin-top: 1.5rem;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .checkout-btn:hover {
-            background: #34495e;
+            background: #555;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+        .checkout-btn i {
+            font-size: 14px;
         }
 
-        .cart-update {
-            animation: pulse 0.3s ease-in-out;
+        .payment-security {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 15px;
         }
 
-        /* ===== NOUVELLES ADAPTATIONS MOBILES (SANS MODIFIER LA STRUCTURE) ===== */
-        
-        /* Empêcher le débordement horizontal */
-        html, body {
-            overflow-x: hidden;
+        /* Style pour les articles dans le panier (quand il y aura des produits) */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+        }
+
+        .cart-item:hover {
+            transform: translateX(5px);
+        }
+
+        .cart-item-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .cart-item-image img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* Rendre toutes les images responsives */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        .cart-item-details {
+            flex: 1;
         }
 
-        /* Éviter les débordements de texte */
-        h1, h2, h3, h4, p, a, span, li {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+        .cart-item-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
         }
 
-        /* Media Queries pour mobile (gardent la même structure, ajustent l'affichage) */
-        
-        /* Tablettes et grands mobiles */
-        @media (max-width: 992px) {
-            .header-container {
-                padding: 1.5rem 1rem;
-            }
-            
-            .search-bar input {
-                width: 200px;
-            }
-            
-            .quick-categories {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .brands-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .features {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .age-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .cart-item-price {
+            color: #666;
+            font-size: 14px;
         }
 
-        /* Petits écrans (mobiles) */
-        @media (max-width: 768px) {
-            /* Header en colonne */
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            
-            .header-right {
-                flex-direction: column;
-                width: 100%;
-                gap: 1rem;
-            }
-            
-            .search-bar {
-                width: 100%;
-            }
-            
-            .search-bar input {
-                width: 100%;
-            }
-            
-            .header-icons {
-                justify-content: center;
-                width: 100%;
-                gap: 2rem;
-            }
-            
-            /* Navigation scrollable horizontalement */
-            nav {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                white-space: nowrap;
-                padding: 0 10px;
-            }
-            
-            nav::-webkit-scrollbar {
-                display: none;
-            }
-            
-            nav ul {
-                display: inline-flex;
-                flex-wrap: nowrap;
-                width: max-content;
-                padding: 1rem;
-                gap: 1.5rem;
-            }
-            
-            nav ul li {
-                display: inline-block;
-                float: none;
-            }
-            
-            /* Cacher les dropdowns sur mobile */
-            .dropdown-menu {
-                display: none !important;
-            }
-            
-            /* Hero banner */
-            .hero-banner {
-                height: 400px;
-            }
-            
-            .hero-content h2 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            /* Grilles en 2 colonnes */
-            .quick-categories,
-            .products-grid,
-            .age-grid,
-            .brands-grid,
-            .features,
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                padding: 1rem;
-            }
-            
-            .category-card {
-                height: 200px;
-            }
-            
-            .category-overlay h3 {
-                font-size: 1.2rem;
-            }
-            
-            .product-info h3 {
-                font-size: 1rem;
-            }
-            
-            .current-price {
-                font-size: 1rem;
-            }
-            
-            /* Newsletter */
-            .newsletter-form {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .newsletter-form input,
-            .newsletter-form button {
-                width: 100%;
-            }
-            
-            /* Panier */
-            .cart-container {
-                grid-template-columns: 1fr;
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            transition: background 0.2s;
+        }
+
+        .quantity-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .quantity-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .remove-item {
+            color: #ff6b6b;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .remove-item:hover {
+            color: #ff4757;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .cart-section {
+                margin: 20px;
+                padding: 15px;
             }
             
             .cart-item {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 0.5rem;
-            }
-            
-            .cart-item img {
-                margin: 0 auto;
-            }
-            
-            /* Collection banner */
-            .collection-banner {
-                height: 300px;
-                background-attachment: scroll;
-            }
-            
-            .collection-content h2 {
-                font-size: 2rem;
-            }
-            
-            /* Footer */
-            .footer-content {
+                flex-direction: column;
                 text-align: center;
             }
             
-            .footer-column h4::after {
-                left: 50%;
-                transform: translateX(-50%);
+            .cart-item-image {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
             
-            .social-links {
-                justify-content: center;
-            }
-            
-            .payment-methods {
-                justify-content: center;
+            .cart-item-actions {
+                margin-top: 10px;
             }
         }
 
-        /* Très petits écrans */
-        @media (max-width: 480px) {
-            .quick-categories,
-            .products-grid,
-            .age-grid,
-            .brands-grid,
-            .features,
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-content h2 {
-                font-size: 2rem;
-            }
-            
-            .product-actions {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            
-            .product-actions button {
-                width: 35px;
-                height: 35px;
-            }
-            
-            .header-icons a, .cart-icon {
-                min-height: 44px;
-                font-size: 0.8rem;
-            }
-            
-            .header-icons i {
-                font-size: 1.2rem;
-            }
-            
-            nav a {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Amélioration des zones cliquables sur mobile */
         @media (max-width: 768px) {
-            .header-icons a, 
-            .cart-icon,
-            nav a,
-            .btn,
-            .btn-small,
-            .add-to-cart,
-            .product-actions button,
-            .age-card,
-            .brand-logo,
-            .social-links a,
-            .checkout-btn {
-                min-height: 44px;
-                min-width: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .header-icons span {
-                margin-top: 2px;
+            .quick-categories {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Empêcher les images de dépasser */
-        .hero-banner,
-        .collection-banner {
-            background-size: cover;
-            background-position: center;
+        @media (max-width: 480px) {
+            .quick-categories {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1251,60 +350,62 @@
         <p>Livraison gratuite à partir de 80€ • Retours offerts • Paiement sécurisé</p>
     </div>
 
-    <!-- En-tête -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>Petite Saison</h1>
-                <p class="tagline">L'élégance pour nos petits</p>
+  <!-- En-tête -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>Petite Saison</h1>
+            <p class="tagline">L'élégance pour nos petits</p>
+        </div>
+        
+        <div class="header-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher un vêtement...">
+                <button><i class="fas fa-search"></i></button>
             </div>
             
-            <div class="header-right">
-                <div class="search-bar">
-                    <input type="text" placeholder="Rechercher un vêtement...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                
-                <div class="header-icons">
-                    <a href="#"><i class="far fa-heart"></i><span>Favoris</span></a>
-                    <a href="#"><i class="far fa-user"></i><span>Compte</span></a>
-                    <button id="cart-button" class="cart-icon" style="background:none; border:none; cursor:pointer;">
-                        <i class="fas fa-shopping-bag"></i>
-                        <span>Panier</span>
-                        <span id="cart-count" class="cart-count">0</span>
-                    </button>
-                </div>
+            <div class="header-icons">
+                <a href="#"><i class="far fa-heart"></i><span>Favoris</span></a>
+                <a href="#"><i class="far fa-user"></i><span>Compte</span></a>
+                <!-- MODIFICATION ICI : Ajout de l'ID au bouton panier -->
+                <button id="cart-button" class="cart-icon" style="background:none; border:none; cursor:pointer;">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Panier</span>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
             </div>
         </div>
+    </div>
 
-        <nav>
-            <ul>
-                <li><a href="#nouveautes">Nouveautés</a></li>
-                <li class="dropdown">
-                    <a href="#filles">Filles <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#filles-0-2">0-2 ans</a></li>
-                        <li><a href="#filles-3-6">3-6 ans</a></li>
-                        <li><a href="#filles-7-12">7-12 ans</a></li>
-                        <li><a href="#filles-accessoires">Accessoires</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#garcons">Garçons <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#garcons-0-2">0-2 ans</a></li>
-                        <li><a href="#garcons-3-6">3-6 ans</a></li>
-                        <li><a href="#garcons-7-12">7-12 ans</a></li>
-                        <li><a href="#garcons-accessoires">Accessoires</a></li>
-                    </ul>
-                </li>
-                <li><a href="#bebe">Bébé</a></li>
-                <li><a href="#collections">Collections</a></li>
-                <li><a href="#soldes" class="soldes-link">Soldes</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Navigation (inchangée) -->
+    <nav>
+        <ul>
+            <li><a href="#nouveautes">Nouveautés</a></li>
+            <li class="dropdown">
+                <a href="#filles">Filles <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#filles-0-2">0-2 ans</a></li>
+                    <li><a href="#filles-3-6">3-6 ans</a></li>
+                    <li><a href="#filles-7-12">7-12 ans</a></li>
+                    <li><a href="#filles-accessoires">Accessoires</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#garcons">Garçons <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#garcons-0-2">0-2 ans</a></li>
+                    <li><a href="#garcons-3-6">3-6 ans</a></li>
+                    <li><a href="#garcons-7-12">7-12 ans</a></li>
+                    <li><a href="#garcons-accessoires">Accessoires</a></li>
+                </ul>
+            </li>
+            <li><a href="#bebe">Bébé</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#soldes" class="soldes-link">Soldes</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <!-- Bannière principale -->
     <section class="hero-banner">
@@ -1322,28 +423,28 @@
             <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3733a246-9194-5516-85d4-5c43b12c63da/996a6d02-752c-5e6d-9e7c-1013ef308243.jpg" alt="Fille">
             <div class="category-overlay">
                 <h3>Filles</h3>
-                <a href="#filles" class="btn btn-small">Voir plus</a>
+                <a href="#filles" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
             <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/74639390-1bb5-5dfd-8550-7ea3ac779b07/c5863b44-41ff-54c8-8b69-29580ce63d66.jpg" alt="Garçon">
             <div class="category-overlay">
                 <h3>Garçons</h3>
-                <a href="#garcons" class="btn btn-small">Voir plus</a>
+                <a href="#garcons" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
             <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400" alt="Bébé">
             <div class="category-overlay">
                 <h3>Bébé</h3>
-                <a href="#bebe" class="btn btn-small">Voir plus</a>
+                <a href="#bebe" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
             <img src="https://www.petiteamelie.fr/media/catalog/product/cache/9ca5c0ad6f3cfa8a755e363117c2d905/d/i/dinette-bois-rose-cuisine-enfant-petite-amelie_1.jpg" alt="Accessoires">
             <div class="category-overlay">
                 <h3>Accessoires</h3>
-                <a href="#accessoires" class="btn btn-small">Voir plus</a>
+                <a href="#accessoires" class="btn-small">Voir plus</a>
             </div>
         </div>
     </section>
@@ -1534,29 +635,39 @@
         </div>
     </section>
 
-    <!-- Section Panier -->
+    <!-- Panier amélioré et plus lisible -->
     <section id="cart-section" class="cart-section">
-        <h2>Votre Panier</h2>
-        <div class="cart-container">
-            <div class="cart-items">
-                <p class="empty-cart">Votre panier est vide</p>
+        <div class="section-header">
+            <h2>🛒 Mon panier</h2>
+            <p class="cart-subtitle">Récapitulatif de vos articles</p>
+        </div>
+        
+        <div id="cart-items" class="cart-items-container">
+            <div class="empty-cart-message">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Votre panier est vide pour le moment.</p>
+                <a href="#nouveautes" class="btn-continue">Continuer mes achats</a>
             </div>
-            <div class="cart-summary">
-                <h3>Récapitulatif</h3>
-                <div class="summary-line">
-                    <span>Sous-total</span>
-                    <span id="subtotal">0,00 €</span>
-                </div>
-                <div class="summary-line">
-                    <span>Livraison</span>
-                    <span>Gratuite</span>
-                </div>
-                <div class="summary-line total">
-                    <span>Total</span>
-                    <span id="total">0,00 €</span>
-                </div>
-                <button class="checkout-btn">Procéder au paiement</button>
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Sous-total</span>
+                <span class="summary-value" id="subtotal">0,00 €</span>
             </div>
+            <div class="summary-row">
+                <span>Livraison</span>
+                <span class="summary-value delivery-free">Gratuite</span>
+            </div>
+            <div class="summary-row total-row">
+                <span class="total-label">Total TTC</span>
+                <span class="total-value" id="total">0,00 €</span>
+            </div>
+            <button class="checkout-btn">
+                <i class="fas fa-lock"></i>
+                Procéder au paiement
+            </button>
+            <p class="payment-security">Paiement 100% sécurisé</p>
         </div>
     </section>
 
