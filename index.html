@@ -373,39 +373,32 @@
         </div>
     </section>
 
-  
-
-    <!-- NOUVEAU : Section Panier -->
+    <!-- Panier (version 2 déplacée ici) -->
     <section id="cart-section" class="cart-section">
-        <h2>Votre Panier</h2>
-        <div class="cart-container">
-            <div class="cart-items">
-                <!-- Les articles du panier seront affichés ici dynamiquement -->
-                <p class="empty-cart">Votre panier est vide</p>
+        <div class="section-header">
+            <h2>Mon panier</h2>
+            <p>Les articles que vous avez ajoutés</p>
+        </div>
+        <div id="cart-items">
+            <p>Votre panier est vide pour le moment.</p>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-row">
+                <span>Sous-total :</span>
+                <span id="subtotal">0,00 €</span>
             </div>
-            <div class="cart-summary">
-                <h3>Récapitulatif</h3>
-                <div class="summary-line">
-                    <span>Sous-total</span>
-                    <span id="subtotal">0,00 €</span>
-                </div>
-                <div class="summary-line">
-                    <span>Livraison</span>
-                    <span>Gratuite</span>
-                </div>
-                <div class="summary-line total">
-                    <span>Total</span>
-                    <span id="total">0,00 €</span>
-                </div>
-                <button class="checkout-btn">Procéder au paiement</button>
+            <div class="cart-row">
+                <span>Livraison :</span>
+                <span>Gratuite</span>
             </div>
+            <div class="cart-row">
+                <span class="total-label">Total :</span>
+                <span id="total" class="total-price">0,00 €</span>
+            </div>
+            <button class="checkout-btn btn btn-primary">Procéder au paiement</button>
         </div>
     </section>
 
-    <!-- Avantages -->
-    <section class="features">
-        ...
-    </section>
     <!-- Avantages -->
     <section class="features">
         <div class="feature">
@@ -492,32 +485,6 @@
                 </div>
             </div>
         </div>
-        
-    <!-- Panier -->
-    <section id="cart-section" class="cart-section">
-        <div class="section-header">
-            <h2>Mon panier</h2>
-            <p>Les articles que vous avez ajoutés</p>
-        </div>
-        <div id="cart-items">
-            <p>Votre panier est vide pour le moment.</p>
-        </div>
-        <div class="cart-summary">
-            <div class="cart-row">
-                <span>Sous-total :</span>
-                <span id="subtotal">0,00 €</span>
-            </div>
-            <div class="cart-row">
-                <span>Livraison :</span>
-                <span>Gratuite</span>
-            </div>
-            <div class="cart-row">
-                <span class="total-label">Total :</span>
-                <span id="total" class="total-price">0,00 €</span>
-            </div>
-            <button class="checkout-btn btn btn-primary">Procéder au paiement</button>
-        </div>
-    </section>
         
         <div class="footer-bottom">
             <p>&copy; 2026 Petite Saison - Tous droits réservés</p>
