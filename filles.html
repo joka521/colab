@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boutique Filles - Colab</title>
+
+  <!-- mêmes fonts / icônes que index.html -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER / NAVBAR identique à index.html -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">Colab</a>
+      <nav class="nav">
+        <a href="index.html#filles">Filles</a>
+        <a href="index.html#garcons">Garçons</a>
+        <a href="index.html#bebe">Bébé</a>
+        <a href="index.html#accessoires">Accessoires</a>
+      </nav>
+      <a href="index.html#panier" class="btn-small">Mon panier</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / TITRE PAGE -->
+    <section class="hero hero-category">
+      <div class="container">
+        <h1>Collection Filles</h1>
+        <p>Découvrez toute notre sélection de vêtements et accessoires pour filles : tenues confortables, styles tendance et pièces incontournables pour tous les jours.</p>
+        <a href="#liste-filles" class="btn-primary">Voir tous les produits</a>
+      </div>
+    </section>
+
+    <!-- LISTE PRODUITS FILLES -->
+    <section id="liste-filles" class="section">
+      <div class="container">
+        <h2>Tous les produits Filles</h2>
+        <p class="section-subtitle">Retrouvez ici l’ensemble des articles filles disponibles en boutique.</p>
+
+        <div class="grid-products">
+          <!-- Exemple de cartes produits filles.
+               Tu peux copier-coller celles de la section #filles de index.html
+               et en ajouter autant que tu veux. -->
+
+          <article class="product-card">
+            <img src="images/fille-1.jpg" alt="Robe fleurie fille" />
+            <h3>Robe fleurie fille</h3>
+            <p class="product-price">19,90 €</p>
+            <button class="btn-small">Ajouter au panier</button>
+          </article>
+
+          <article class="product-card">
+            <img src="images/fille-2.jpg" alt="Sweat à capuche rose" />
+            <h3>Sweat à capuche rose</h3>
+            <p class="product-price">24,90 €</p>
+            <button class="btn-small">Ajouter au panier</button>
+          </article>
+
+          <!-- Ajoute ici tous les autres produits Filles -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER identique à index.html -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 Colab. Tous droits réservés.</p>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </footer>
+
+  <!-- Si tu as du JS global (panier, etc.), garde le même script -->
+  <script src="script.js"></script>
+</body>
+</html>
