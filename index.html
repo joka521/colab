@@ -69,6 +69,268 @@
             background: #f0f0f0;
         }
 
+        /* Styles améliorés pour le panier */
+        .cart-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f5f5f5;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cart-subtitle {
+            color: #999;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .cart-items-container {
+            min-height: 150px;
+            margin-bottom: 25px;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f9f9f9;
+            border-radius: 15px;
+        }
+
+        .empty-cart-message i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .empty-cart-message p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .btn-continue {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-continue:hover {
+            background: #555;
+        }
+
+        .cart-summary {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .summary-row:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-value {
+            font-weight: 500;
+        }
+
+        .delivery-free {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .total-row {
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+        }
+
+        .total-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .total-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .checkout-btn:hover {
+            background: #555;
+        }
+
+        .checkout-btn i {
+            font-size: 14px;
+        }
+
+        .payment-security {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        /* Style pour les articles dans le panier (quand il y aura des produits) */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+        }
+
+        .cart-item:hover {
+            transform: translateX(5px);
+        }
+
+        .cart-item-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            transition: background 0.2s;
+        }
+
+        .quantity-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .quantity-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .remove-item {
+            color: #ff6b6b;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .remove-item:hover {
+            color: #ff4757;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .cart-section {
+                margin: 20px;
+                padding: 15px;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cart-item-image {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .cart-item-actions {
+                margin-top: 10px;
+            }
+        }
+
         @media (max-width: 768px) {
             .quick-categories {
                 grid-template-columns: repeat(2, 1fr);
@@ -373,29 +635,39 @@
         </div>
     </section>
 
-    <!-- Panier (version 2 déplacée ici) -->
+    <!-- Panier amélioré et plus lisible -->
     <section id="cart-section" class="cart-section">
         <div class="section-header">
-            <h2>Mon panier</h2>
-            <p>Les articles que vous avez ajoutés</p>
+            <h2>🛒 Mon panier</h2>
+            <p class="cart-subtitle">Récapitulatif de vos articles</p>
         </div>
-        <div id="cart-items">
-            <p>Votre panier est vide pour le moment.</p>
+        
+        <div id="cart-items" class="cart-items-container">
+            <div class="empty-cart-message">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Votre panier est vide pour le moment.</p>
+                <a href="#nouveautes" class="btn-continue">Continuer mes achats</a>
+            </div>
         </div>
+
         <div class="cart-summary">
-            <div class="cart-row">
-                <span>Sous-total :</span>
-                <span id="subtotal">0,00 €</span>
+            <div class="summary-row">
+                <span>Sous-total</span>
+                <span class="summary-value" id="subtotal">0,00 €</span>
             </div>
-            <div class="cart-row">
-                <span>Livraison :</span>
-                <span>Gratuite</span>
+            <div class="summary-row">
+                <span>Livraison</span>
+                <span class="summary-value delivery-free">Gratuite</span>
             </div>
-            <div class="cart-row">
-                <span class="total-label">Total :</span>
-                <span id="total" class="total-price">0,00 €</span>
+            <div class="summary-row total-row">
+                <span class="total-label">Total TTC</span>
+                <span class="total-value" id="total">0,00 €</span>
             </div>
-            <button class="checkout-btn btn btn-primary">Procéder au paiement</button>
+            <button class="checkout-btn">
+                <i class="fas fa-lock"></i>
+                Procéder au paiement
+            </button>
+            <p class="payment-security">Paiement 100% sécurisé</p>
         </div>
     </section>
 
