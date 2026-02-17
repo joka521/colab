@@ -309,6 +309,17 @@
             color: #ff4757;
         }
 
+        /* Style pour les images de remplacement */
+        .fallback-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .cart-section {
@@ -382,8 +393,8 @@
         <ul>
             <li><a href="#nouveautes">Nouveautés</a></li>
             <li class="dropdown">
-                <a href="filles.html" class="btn-small">Voir plus</a>
-
+                <a href="#filles">Filles <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
                     <li><a href="#filles-0-2">0-2 ans</a></li>
                     <li><a href="#filles-3-6">3-6 ans</a></li>
                     <li><a href="#filles-7-12">7-12 ans</a></li>
@@ -417,31 +428,31 @@
         </div>
     </section>
 
-    <!-- Catégories rapides -->
+    <!-- Catégories rapides avec images adaptées -->
     <section class="quick-categories">
         <div class="category-card">
-            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3733a246-9194-5516-85d4-5c43b12c63da/996a6d02-752c-5e6d-9e7c-1013ef308243.jpg" alt="Fille">
+            <img src="https://images.unsplash.com/photo-1618839823142-1d77ab705c36?q=80&w=400&auto=format&fit=crop" alt="Petite fille en robe élégante rose" onerror="this.src='https://placehold.co/400x600/f5c8d0/333?text=Fille'">
             <div class="category-overlay">
                 <h3>Filles</h3>
                 <a href="#filles" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
-            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/74639390-1bb5-5dfd-8550-7ea3ac779b07/c5863b44-41ff-54c8-8b69-29580ce63d66.jpg" alt="Garçon">
+            <img src="https://images.unsplash.com/photo-1618839823142-1d77ab705c36?q=80&w=400&auto=format&fit=crop" alt="Petit garçon en tenue chic" onerror="this.src='https://placehold.co/400x600/a0c4e2/333?text=Garçon'">
             <div class="category-overlay">
                 <h3>Garçons</h3>
                 <a href="#garcons" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400" alt="Bébé">
+            <img src="https://images.unsplash.com/photo-1596463944505-af40c4e7d71a?q=80&w=400&auto=format&fit=crop" alt="Bébé dans une tenue douce" onerror="this.src='https://placehold.co/400x600/f9e0c0/333?text=Bébé'">
             <div class="category-overlay">
                 <h3>Bébé</h3>
                 <a href="#bebe" class="btn-small">Voir plus</a>
             </div>
         </div>
         <div class="category-card">
-            <img src="https://www.petiteamelie.fr/media/catalog/product/cache/9ca5c0ad6f3cfa8a755e363117c2d905/d/i/dinette-bois-rose-cuisine-enfant-petite-amelie_1.jpg" alt="Accessoires">
+            <img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa9?q=80&w=400&auto=format&fit=crop" alt="Accessoires pour enfants" onerror="this.src='https://placehold.co/400x600/d4c2ad/333?text=Accessoires'">
             <div class="category-overlay">
                 <h3>Accessoires</h3>
                 <a href="#accessoires" class="btn-small">Voir plus</a>
@@ -449,7 +460,7 @@
         </div>
     </section>
 
-    <!-- Nouveautés -->
+    <!-- Nouveautés avec images adaptées -->
     <section id="nouveautes" class="products-section">
         <div class="section-header">
             <h2>Nouveautés de la semaine</h2>
@@ -457,11 +468,11 @@
         </div>
 
         <div class="products-grid">
-            <!-- Produit 1 -->
+            <!-- Produit 1 - Robe fleurie -->
             <div class="product-card">
                 <div class="product-badge new">Nouveau</div>
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Robe fleurie">
+                    <img src="https://images.unsplash.com/photo-1545243424-0ce743321e11?q=80&w=400&auto=format&fit=crop" alt="Robe fleurie printanière pour fille" onerror="this.src='https://placehold.co/400x500/f5c8d0/333?text=Robe+fleurie'">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -483,10 +494,10 @@
                 </div>
             </div>
 
-            <!-- Produit 2 -->
+            <!-- Produit 2 - Ensemble garçon -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa9?w=400" alt="Ensemble garçon">
+                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=400&auto=format&fit=crop" alt="Ensemble casual chic pour garçon" onerror="this.src='https://placehold.co/400x500/a0c4e2/333?text=Ensemble+casual'">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -507,11 +518,11 @@
                 </div>
             </div>
 
-            <!-- Produit 3 -->
+            <!-- Produit 3 - Pull bébé -->
             <div class="product-card">
                 <div class="product-badge promo">-30%</div>
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Pull bébé">
+                    <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=400&auto=format&fit=crop" alt="Pull tout doux en cachemire pour bébé" onerror="this.src='https://placehold.co/400x500/f9e0c0/333?text=Pull+bébé'">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -532,10 +543,10 @@
                 </div>
             </div>
 
-            <!-- Produit 4 -->
+            <!-- Produit 4 - Jupe tutu -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="Jupe tutu">
+                    <img src="https://images.unsplash.com/photo-1583846783214-7229ca91d3b2?q=80&w=400&auto=format&fit=crop" alt="Jupe tutu de fête pour fille" onerror="this.src='https://placehold.co/400x500/d9b8c4/333?text=Jupe+tutu'">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -555,10 +566,10 @@
                 </div>
             </div>
 
-            <!-- Produit 5 -->
+            <!-- Produit 5 - Veste tweed -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?w=400" alt="Veste garçon">
+                    <img src="https://images.unsplash.com/photo-1503919545889-a8f15f5cc6f1?q=80&w=400&auto=format&fit=crop" alt="Veste en tweed pour garçon" onerror="this.src='https://placehold.co/400x500/8b7d6b/fff?text=Veste+tweed'">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
@@ -574,10 +585,10 @@
                 </div>
             </div>
 
-            <!-- Produit 6 -->
+            <!-- Produit 6 - Barboteuse -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400" alt="Barboteuse">
+                    <img src="https://images.unsplash.com/photo-1596357395392-6f3d5d1cd3d1?q=80&w=400&auto=format&fit=crop" alt="Barboteuse en lin pour bébé" onerror="this.src='https://placehold.co/400x500/e6d5b8/333?text=Barboteuse'">
                     <div class="product-actions">
                         <button class="quick-view"><i class="fas fa-eye"></i></button>
                         <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
